@@ -2,8 +2,8 @@
 <html lang="ar" dir="rtl"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>حسابات أحمد</title>
-<!--PWA--><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="حسابات"><!--/PWA-->
+<title>الحسابات</title>
+<!--PWA--><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="الحسابات"><!--/PWA-->
 <meta name="theme-color" content="#ffffff"><meta name="color-scheme" content="light">
 <style>
 :root{--bg:#fff;--tx:#111827;--mu:#6B7280;--bd:#E5E7EB;--pr:#1F4E79;--soft:#F3F6FA;--rd:#DC2626;--ok:#047857;color-scheme:light;
@@ -64,7 +64,7 @@ input.in:focus{border-color:var(--pr)}
 </style></head>
 <body>
 <div class="w">
-  <div class="hd"><h1>حسابات أحمد</h1><div><button class="sm" id="all">👁 إظهار الكل</button> <button class="sm" id="set">⚙</button></div></div>
+  <div class="hd"><h1>الحسابات</h1><div><button class="sm" id="all">👁 إظهار الكل</button> <button class="sm" id="set">⚙</button></div></div>
   <div class="tot"><div class="l"><span>الإجمالي</span><button class="ey" data-eye="total" id="etot"></button></div><div class="big" id="total"></div></div>
   <div class="sum" id="sum"></div>
   <div class="filt" id="filt"></div>
@@ -80,11 +80,11 @@ input.in:focus{border-color:var(--pr)}
 
 <script>
 var TY=[["أساسي","#1F4E79"],["خاص","#7C3AED"],["شغل","#D97706"],["أخرى","#6B7280"]];
-var KEY="hisabat-ahmed-v3";
-var DEF=[{id:1,name:"البيت",amount:790000,type:"أساسي"},{id:2,name:"الأولاد",amount:60000,type:"أساسي"},{id:3,name:"أحمد عبدالرحيم",amount:224750,type:"خاص"},{id:4,name:"استيراد",amount:116800,type:"شغل"}];
+var KEY="hisabat-wife-v1";
+var DEF=[{id:1,name:"البيت",amount:0,type:"أساسي"},{id:2,name:"الأولاد",amount:0,type:"أساسي"}];
 var D={items:DEF,pin:null,rec:null,asked:false},flt="الكل",rev={},last=null,tt,selT="أساسي",editId=null,P={m:"",b:"",f:"",skip:false};
 function $(i){return document.getElementById(i)}
-try{var s=localStorage.getItem(KEY)||localStorage.getItem("hisabat-ahmed-v2");if(s){var o=JSON.parse(s);if(o&&o.items)D.items=o.items;if(o&&o.pin)D.pin=o.pin;if(o&&o.rec)D.rec=o.rec;if(o&&o.asked)D.asked=true}}catch(e){}
+try{var s=localStorage.getItem(KEY);if(s){var o=JSON.parse(s);if(o&&o.items)D.items=o.items;if(o&&o.pin)D.pin=o.pin;if(o&&o.rec)D.rec=o.rec;if(o&&o.asked)D.asked=true}}catch(e){}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(D))}catch(e){}}
 function r2(n){return Math.round(n*100)/100}
 function sum(l){return l.reduce(function(a,b){return r2(a+b.amount)},0)}
